@@ -38,15 +38,15 @@ pipeline {
                         
                         // Copy deploy.sh to the target server
                         echo 'Running SCP...'
-                        sh "scp -i ${SSH_KEY} -o StrictHostKeyChecking=no deploy.sh ${USER}@54.184.219.225:/home/${USER}/deploy/"
+                        sh "scp -i ${SSH_KEY} -o StrictHostKeyChecking=no deploy.sh ${USER}@52.26.191.239:/home/${USER}/deploy/"
                         
                         // Verify that deploy.sh was copied successfully
                         echo 'Checking if deploy.sh was copied...'
-                        sh "ssh -i ${SSH_KEY} -o StrictHostKeyChecking=no ${USER}@54.184.219.225 'ls -la /home/${USER}/deploy/'"
+                        sh "ssh -i ${SSH_KEY} -o StrictHostKeyChecking=no ${USER}@52.26.191.239 'ls -la /home/${USER}/deploy/'"
                         
                         // Execute the deploy.sh script on the target server
                         echo 'Running SSH...'
-                        sh "ssh -i ${SSH_KEY} -o StrictHostKeyChecking=no ${USER}@54.184.219.225 'mkdir -p /home/${USER}/deploy && cd /home/${USER}/deploy && ./deploy.sh'"
+                        sh "ssh -i ${SSH_KEY} -o StrictHostKeyChecking=no ${USER}@52.26.191.239 'mkdir -p /home/${USER}/deploy && cd /home/${USER}/deploy && ./deploy.sh'"
                     }
                 }
             }
