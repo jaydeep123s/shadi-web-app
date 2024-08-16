@@ -5,7 +5,7 @@ pipeline {
         stage('Pull Code') {
             steps {
                 // Clone the repository from GitHub
-                git branch: 'devops', url: ''
+                git branch: 'devops', url: 'https://github.com/jaydeep123s/shadi-web-app.git'
             }
         }
 
